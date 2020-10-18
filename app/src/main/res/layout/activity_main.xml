@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/activity_home"/>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="center"
+        app:elevation="0dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:backgroundTint="@color/darkGrey"
+        app:fabCradleMargin="10dp"
+        app:hideOnScroll="true">
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/bottomAppBar"
+        app:srcCompat="@drawable/ic_shopping_cart"
+        app:backgroundTint="@color/lightYellow"
+        tools:ignore="VectorDrawableCompat" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
