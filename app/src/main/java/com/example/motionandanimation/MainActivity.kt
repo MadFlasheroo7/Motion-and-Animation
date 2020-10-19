@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class MainActivity : AppCompatActivity() {
     private var productlist = ArrayList<Products>()
+    private var suggestionList = ArrayList<Products>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,13 +58,58 @@ class MainActivity : AppCompatActivity() {
 //        }
         viewPager.setPageTransformer(SliderTransformer(3))
 //        viewPager.setPageTransformer(compositePageTransformer)
+        /*
+            setting up Based on purchase list
+         */
+        suggestionList.add(
+            Products(
+            "OnePlus 7Pro",
+            R.drawable.op7pro,
+            "",
+            "",
+            "₹25,000"))
+        suggestionList.add(
+            Products(
+                "iPhone 11 Pro Max",
+                R.drawable.iphone11,
+                "",
+                "",
+                "₹25,000"))
+        suggestionList.add(
+            Products(
+                "Pixel 4a",
+                R.drawable.pixel,
+                "",
+                "",
+                "₹25,000"))
+        suggestionList.add(
+            Products(
+                "OnePlus 7Pro",
+                R.drawable.op7pro,
+                "",
+                "",
+                "₹25,000"))
+        suggestionList.add(
+            Products(
+                "Pixel 4a",
+                R.drawable.pixel,
+                "",
+                "",
+                "₹25,000"))
+        suggestionList.add(
+            Products(
+                "OnePlus 7Pro",
+                R.drawable.op7pro,
+                "",
+                "",
+                "₹25,000"))
 
         /*
             setting up recycler view
          */
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView2)
         recyclerView.setHasFixedSize(true)
-        val suggestionAdapter = SuggestionAdapter(productlist)
+        val suggestionAdapter = SuggestionAdapter(suggestionList)
         recyclerView.adapter = suggestionAdapter
         recyclerView.layoutManager = GridLayoutManager(this,2)
     }
