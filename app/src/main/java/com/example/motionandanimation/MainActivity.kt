@@ -1,6 +1,10 @@
 package com.example.motionandanimation
 
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,9 +16,20 @@ import java.lang.Math.abs
 class MainActivity : AppCompatActivity() {
     private var productlist = ArrayList<Products>()
     private var suggestionList = ArrayList<Products>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+//        val view: View = window.decorView
+//        view.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            window.setDecorFitsSystemWindows(false)
+        }
+//        } else {
+//            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or
+//                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+//        }
         productlist.add(
             Products(
                 "OnePlus 8T pro",
@@ -56,8 +71,8 @@ class MainActivity : AppCompatActivity() {
             val r:Float = 1 - kotlin.math.abs(position)
             page.scaleY = 0.85f + r * 0.15f
         }
-//        viewPager.setPageTransformer(SliderTransformer(3))
-        viewPager.setPageTransformer(compositePageTransformer)
+        viewPager.setPageTransformer(SliderTransformer(3))
+//        viewPager.setPageTransformer(compositePageTransformer)
         /*
             setting up Based on purchase list
          */
